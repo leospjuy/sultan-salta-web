@@ -13,89 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0b0b; /* negro profundo */
-      --panel:#121212; /* gris muy oscuro */
-      --soft:#1b1b1b; 
-      --text:#f5f5f5; /* casi blanco */
-      --muted:#bdbdbd; /* gris claro */
-      --gold:#d4af37; /* dorado */
-      --gold-2:#b8902d;
-      --ring: rgba(212, 175, 55, .35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .container{width:min(1120px, 100%);margin-inline:auto;padding-inline:12px}
-    .nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(160%) blur(8px);background:linear-gradient(180deg, rgba(0,0,0,.8), rgba(0,0,0,.5));border-bottom:1px solid #222}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 8px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-badge{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 210deg, var(--gold), #fff0, var(--gold-2));border:1px solid rgba(212,175,55,.5);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(212,175,55,.1)}
-    .brand-badge svg{width:20px;height:20px}
-    .brand h1{font:700 20px/1.1 "Playfair Display", serif;letter-spacing:.4px}
-    .menu{display:flex;gap:16px}
-    .menu a{padding:8px 10px;border-radius:12px;color:var(--muted)}
-    .menu a:hover{background:#1c1c1c;color:var(--text)}
-
-    .hero{position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:-20%;background:
-      radial-gradient(800px 400px at 20% -10%, rgba(212,175,55,.18), transparent 60%),
-      radial-gradient(600px 320px at 110% 10%, rgba(212,175,55,.12), transparent 60%),
-      radial-gradient(700px 500px at 50% 120%, rgba(212,175,55,.12), transparent 60%);
-      pointer-events:none;}
-    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center;padding:56px 0}
-    .hero h2{font:700 44px/1.1 "Playfair Display", serif;margin:0 0 12px}
-    .hero p{color:var(--muted);margin:0 0 24px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:12px 16px;border-radius:14px;border:1px solid #2a2a2a;background:#161616;color:#fff;cursor:pointer;transition:.2s}
-    .btn:hover{transform:translateY(-1px);background:#1b1b1b;border-color:#333}
-    .btn.gold{background:linear-gradient(180deg, var(--gold), var(--gold-2));color:#0b0b0b;border:none;box-shadow:0 10px 25px rgba(212,175,55,.18)}
-    .btn.gold:hover{filter:saturate(110%)}
-
-    .panel{background:linear-gradient(180deg, #111, #0e0e0e);border:1px solid #1f1f1f;border-radius:22px;padding:18px;box-shadow:0 10px 28px rgba(0,0,0,.4)}
-    .toolbar{display:grid;grid-template-columns:1fr .8fr .8fr;gap:12px;align-items:center}
-    .input, select{width:100%;padding:12px 14px;border-radius:14px;background:#121212;border:1px solid #242424;color:#ddd;outline:none}
-    .input:focus, select:focus{border-color:var(--gold);box-shadow:0 0 0 6px var(--ring)}
-
-    .grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:16px}
-    @media (max-width: 980px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2, 1fr)}}
-    @media (max-width: 560px){.grid{grid-template-columns:1fr} .menu{display:none}}
-
-    .card{position:relative;background:linear-gradient(180deg, #151515, #101010);border:1px solid #242424;border-radius:20px;overflow:hidden;display:flex;flex-direction:column}    
-    .thumb{position:relative;aspect-ratio:1/1;background:radial-gradient(500px 220px at -10% -20%, rgba(212,175,55,.22), transparent 60%), linear-gradient(180deg, #1a1a1a, #0f0f0f);display:grid;place-items:center;padding:12px}
-    .thumb img{width:100%;height:100%;object-fit:cover;border-radius:12px}
-    .thumb svg{width:72px;height:72px;opacity:.9}
-    .badge{position:absolute;top:8px;left:8px;background:rgba(212,175,55,.12);color:var(--gold);border:1px solid rgba(212,175,55,.4);padding:6px 8px;border-radius:999px;font-size:12px}
-    .card-body{padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px}
-    .name{font-weight:600}
-    .brand{color:var(--muted);font-size:13px}
-    .notes{color:#c9c9c9;font-size:13px}
-    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-    .tag{border:1px solid #343434;color:#cfcfcf;padding:4px 8px;border-radius:999px;font-size:12px}
-    .price{margin-top:6px;font-weight:600;color:var(--gold)}
-    .actions{display:flex;gap:8px;align-items:center;margin-top:10px}
-    .check{accent-color:var(--gold)}
-    .whats{margin-left:auto}
-
-    .kits{margin-top:28px;display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
-    @media (max-width: 980px){.kits{grid-template-columns:1fr}}
-    .kit{background:linear-gradient(180deg, #131313, #0f0f0f);border:1px solid #222;border-radius:18px;padding:16px}
-    .kit h4{margin:0 0 8px;font:600 16px/1.2 Inter}
-    .kit p{margin:0 0 12px;color:#c9c9c9}
-
-    .about{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
-    @media (max-width: 980px){.about{grid-template-columns:1fr}}
-
-    .sticky-bar{position:sticky;bottom:8px;margin-top:14px;background:#121212;border:1px solid #252525;border-radius:16px;padding:10px;display:flex;align-items:center;gap:10px}
-    .sticky-bar b{color:var(--gold)}
-
-    footer{margin-top:40px;padding:24px 0;color:#b9b9b9;border-top:1px solid #1f1f1f}
-    .social{display:flex;gap:12px;align-items:center}
-
-    .sr-only{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-  </style>
+  <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -112,9 +30,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
-        <span class="brand-badge" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l3-4 3 4 3-4 3 4 3-4 3 4"/><path d="M5 14h14l-1 6H6l-1-6z"/></svg>
-        </span>
+        <span class="brand-badge" aria-hidden="true"><img src="img/logo.jpg" alt="Logo Sultan Salta"></span>
         <h1>Sultan Salta Importados</h1>
       </a>
       <div class="menu" role="navigation" aria-label="Secciones del sitio">
@@ -129,7 +45,7 @@
   <main id="inicio" class="hero">
     <div class="container hero-inner">
       <section>
-        <h2>#Perfumes & Equipos Tecno</h2>
+        <h2><span style="color: var(--gold)">Perfumes</span>, <span style="color: var(--gold)">Cosmética</span> & <span style="color: var(--gold)">Tecno</span></h2>
         <p> Envíos a todo el país. Pedidos por WhatsApp con asesoramiento personalizado.</p>
         <div class="cta">
           <a class="btn gold" id="whatsHero" href="https://wa.me/5493874752648?text=Hola%20Sultan%2C%20quiero%20asesoramiento" target="_blank" rel="noopener">Pedir por WhatsApp</a>
@@ -143,38 +59,29 @@
           <label class="sr-only" for="brand">Marca</label>
           <select id="brand">
             <option value="">Todos los productos</option>
-            <option>Lattafa</option>
-            <option>Armaf</option>
-            <option>Afnan</option>
-            <option>Zimaya</option>
-            <option>Rasasi</option>
-            <option>TECNO+</option>
-            <option>COSMETICA</option>
-            
           </select>
           <label class="sr-only" for="notes">Familia olfativa</label>
           <select id="notes">
             <option value="">Todas las familias</option>
-            <option>Dulce</option>
-            <option>Amaderado</option>
-            <option>Especiado</option>
-            <option>Ámbar</option>
-            <option>Almizcle</option>
-            <option>Rosa</option>
-            <option>Cedro</option>
-            <option>Jazmín</option>
-            <option>Tiramisu</option>
-            <option>Notas acuaticas</option>
           </select>
-        </div>
-        <div class="sticky-bar" aria-live="polite">
-          <span>Seleccionados: <b id="count">0</b></span>
-          <span>Subtotal: <b id="total">$0</b></span>
-          <button class="btn gold" id="sendOrder">Enviar pedido por WhatsApp</button>
         </div>
       </aside>
     </div>
   </main>
+
+  <!-- Carrito fijo en la parte inferior -->
+  <div id="cart-container" class="cart-fixed">
+    <div class="cart-header">
+      <h4>Tu Pedido</h4>
+      <span id="cart-close" class="cart-item-remove" title="Cerrar carrito">&times;</span>
+    </div>
+    <div id="cart-items"></div>
+    <div class="sticky-bar" aria-live="polite">
+      <span>Seleccionados: <b id="count">0</b></span>
+      <span>Subtotal: <b id="total">$0</b></span>
+      <button class="btn gold" id="sendOrder">Enviar pedido por WhatsApp</button>
+    </div>
+  </div>
 
   <section id="catalogo" class="container" style="margin-top: 8px">
     <h3 style="font:700 80px 'Playfair Display', serif; margin: 5px 0 12px">Catálogo</h3>
@@ -206,11 +113,11 @@
     <div class="about">
       <div>
         <h3 style="font:700 22px 'Playfair Display', serif; margin: 6px 0 12px">Sobre nosotros</h3>
-        <p>Somos <b>Sultan Salta Importados</b>. Tenemos perfumes árabes y productos tecno con excelente relación precio-calidad. Atención personalizada, asesoramiento por cada product. Hacemos envíos dentro de Salta y todo el país.</p>
+        <p>Somos <b>Sultan Salta Importados</b>. Tenemos productos con excelente relación precio. Atención personalizada. Hacemos envíos dentro de Salta y todo el país.</p>
         <ul style="line-height:1.9;color:#cfcfcf">
           <li>Marcas: Lattafa, Armaf, Afnan, APPLE, JBL y más.</li>
           <li>Presentaciones: 100 ml y Kits combinados.</li>
-          <li>Medios: efectivo / transferencia / planes con tarjetas de credito.</li>
+          <li><b>Precios publicados de contado/transferencia.</b> Consultar por planes con tarjeta.</li>
         </ul>
       </div>
       <div class="panel">
@@ -242,138 +149,6 @@
     </div>
   </footer>
 
-  <script>
-    // ==========================
-    // CONFIG BÁSICA
-    // Editá estos datos a gusto
-    // ==========================
-    const WHATS_NUMBER = '5493874752648'; // sin + y con código de país 54
-    let products = [];
-
-    // ==========================
-    // Render UI
-    // ==========================
-    const $grid = document.querySelector('#grid');
-    const $q = document.querySelector('#q');
-    const $brand = document.querySelector('#brand');
-    const $notes = document.querySelector('#notes');
-    const $count = document.querySelector('#count');
-    const $total = document.querySelector('#total');
-    const $sendOrder = document.querySelector('#sendOrder');
-
-    const state = { selected: new Map(), filter:{ q:'', brand:'', note:'' } };
-
-    const perfumeSVG = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M8 2h8v3H8zM10 5h4v3h-4z"/>
-        <path d="M7 8h10a3 3 0 013 3v7a3 3 0 01-3 3H7a3 3 0 01-3-3v-7a3 3 0 013-3z"/>
-      </svg>`;
-
-    function money(n){
-      try{
-        return n.toLocaleString('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
-      }catch{ return `${n}` }
-    }
-
-    function card(p){
-      const id = `chk_${p.id}`;
-      const imageHtml = p.image 
-        ? `<img src="${p.image}" alt="${p.name}" loading="lazy">` 
-        : perfumeSVG;
-
-      return `
-        <article class="card" data-brand="${p.brand}" data-notes="${p.notes.join(',').toLowerCase()}" data-name="${(p.name+ ' ' + p.brand).toLowerCase()}">
-          <div class="thumb" aria-hidden="true">
-            <span class="badge">${p.brand}</span>
-            ${imageHtml}
-          </div>
-          <div class="card-body">
-            <div class="name">${p.name} <span class="brand">• ${p.brand} ${p.size ? `• ${p.size}ml` : ''}</span></div>
-            <div class="notes">Notas: ${p.notes.join(', ')}</div>
-            <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-            <div class="price">${p.priceText || money(p.price)}</div>
-            <div class="actions">
-              <label><input class="check" id="${id}" type="checkbox" data-id="${p.id}"> Agregar</label>
-              <a class="btn whats" href="${waFor([p])}" target="_blank" rel="noopener" aria-label="Pedir ${p.name} por WhatsApp">WhatsApp</a>
-            </div>
-          </div>
-        </article>`;
-    }
-
-    function render(){
-      const q = state.filter.q.toLowerCase();
-      const brand = state.filter.brand;
-      const note = state.filter.note.toLowerCase();
-
-      const list = products.filter(p => {
-        const matchQ = !q || (p.name+ ' ' + p.brand + ' ' + p.notes.join(' ')).toLowerCase().includes(q);
-        const matchB = !brand || p.brand === brand;
-        const matchN = !note || p.notes.map(n=>n.toLowerCase()).some(n=>n.includes(note));
-        return matchQ && matchB && matchN;
-      });
-      $grid.innerHTML = list.map(card).join('');
-
-      // re-bind checkboxes
-      $grid.querySelectorAll('.check').forEach(chk => {
-        chk.addEventListener('change', (e)=>{
-          const id = e.target.dataset.id;
-          const p = products.find(x=>x.id===id);
-          if(e.target.checked){ state.selected.set(id, p); }
-          else{ state.selected.delete(id); }
-          updateSticky();
-        });
-        // keep state on rerender
-        const id = chk.dataset.id;
-        if(state.selected.has(id)) chk.checked = true;
-      });
-    }
-
-    function updateSticky(){
-      $count.textContent = state.selected.size;
-      const total = [...state.selected.values()].reduce((acc,p)=>acc + (Number(p.price)||0), 0);
-      $total.textContent = money(total);
-      $sendOrder.disabled = state.selected.size === 0;
-      $sendOrder.classList.toggle('gold', state.selected.size>0);
-    }
-
-    function waFor(list){
-      const items = list.map(p=>`• ${p.name} (${p.brand}) ${p.size ? `${p.size}ml` : ''} — ${p.priceText || money(p.price)}`).join('%0A');
-      const total = list.reduce((acc,p)=>acc + (Number(p.price)||0), 0);
-      const text = `Hola Sultan%2C quiero pedir:%0A${items}%0A%0ASubtotal:%20${encodeURIComponent(money(total))}`;
-      return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
-    }
-
-    $q.addEventListener('input', ()=>{ state.filter.q = $q.value; render(); });
-    $brand.addEventListener('change', ()=>{ state.filter.brand = $brand.value; render(); });
-    $notes.addEventListener('change', ()=>{ state.filter.note = $notes.value; render(); });
-
-    document.querySelector('#year').textContent = new Date().getFullYear();
-
-    $sendOrder.addEventListener('click', ()=>{
-      const list = [...state.selected.values()];
-      window.open(waFor(list), '_blank');
-    });
-
-    document.querySelectorAll('.kit [data-kit]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        // JSON.parse no funciona con comillas simples, las reemplazamos por dobles.
-        const names = JSON.parse(e.target.dataset.kit.replace(/'/g, '"'));
-        sendKit(names);
-      });
-    });
-
-    function sendKit(names){
-      const list = products.filter(p=> names.some(n => (p.name + ' ('+p.brand+')').includes(n)));
-      window.open(waFor(list), '_blank');
-    }
-
-    // --- Inicialización ---
-    fetch('products.json')
-      .then(response => response.json())
-      .then(data => {
-        products = data;
-        render(); // Llamamos a render para mostrar los productos al cargar la página.
-      });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
