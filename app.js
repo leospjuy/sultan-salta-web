@@ -50,6 +50,7 @@ const products = [
       { "id": "tv-stick", "name": "TV Stick", "brand": "TECNO+", "notes": ["Convierte tu TV en Smart"], "tags": ["Tecnología"], "price": 40000, "priceText": "$40.000", "available": true, "image": "img/TVSTICK-Photoroom.jpg" },
       { "id": "alexa-jbl", "name": "Alexa JBL", "brand": "TECNO+", "notes": ["Poné música: Spotify, YouTube, Amazon Music"], "tags": ["Tecnología", "Audio"], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/alexajbl-Photoroom.jpg" },
       { "id": "luo-afeitadora", "name": "LUO afeitadora perfiladora", "brand": "TECNO+", "notes": ["Recargable Barberia Dorado"], "tags": ["Cuidado Personal"], "price": 15000, "priceText": "$15.000", "available": true, "image": "img/patilleraluo.jpg" },
+      { "id": "Auriculares 2gen", "name": "airpods 2", "brand": "TECNO+", "notes": ["calida AAA"], "tags": ["Manuales, Cable de carga, 6eartips size"], "price": 25000, "priceText": "$25.000", "available": true, "image": "img/auricu.jpeg" },
 
       // --- KARSEELL ---
       { "id": "karseell-shampoo", "name": "Karseell Maca Power Shampoo", "brand": "Karseell", "size": 500, "notes": ["diseñado para fortalecer, nutrir y revitalizar tu cabello"], "tags": ["Cuidado Personal", "Cabello"], "price": 22000, "priceText": "$22.000", "available": true, "image": "img/shampokarsell.jpg" },
