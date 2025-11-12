@@ -4,67 +4,56 @@
 // ==========================
 const WHATS_NUMBER = '5493874752648'; // sin + y con código de país 54
 
-// Se incrustan los productos directamente para evitar problemas de CORS al abrir como archivo local.
 const products = [
-  { "id": "9am", "name": "9 AM MASC", "brand": "Afnan", "size": 100, "notes": ["Cítrico","Dulce"], "tags":["Unisex","Fresco"], "price": 68000, "priceText": "$68.000", "available": true, "image": "img/9amm-Photoroom.jpg" },
-  { "id": "9am-dive", "name": "9 AM DIVE EDP", "brand": "Afnan", "size": 100, "notes": ["Ámbar","Notas acuaticas"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/9ammdive-Photoroom.jpg" },
-  { "id": "9pm", "name": "9 PM MASC EDP", "brand": "Afnan", "size": 100, "notes": ["Ámbar","Pachuli"], "tags": [], "price": 64000, "priceText": "$64.000", "available": true, "image": "img/9pm-Photoroom.jpg" },
-  { "id": "odyssey-mandarin", "name": "Odyssey Mandarin Sky EDP", "brand": "Armaf", "size": 100, "notes": ["Dulce","Mandarina"], "tags": [], "price": 68000, "priceText": "$68.000", "available": true, "image": "img/mandarin-Photoroom.jpg" },
-  { "id": "cdn-iconic", "name": "Club de Nuit Iconic EDP", "brand": "Armaf", "size": 100, "notes": ["Pachuli","Pomelo"], "tags": [], "price": 80000, "priceText": "$80.000", "available": true, "image": "img/cdniconic-Photoroom.jpg" },
-  { "id": "cdnim", "name": "Club de Nuit Intense Man", "brand": "Armaf", "size": 105, "notes": ["Amaderado","Cítrico","Almizcle"], "tags":["Masculino","Clásico"], "price": 42999, "priceText": "$42.999", "available": true, "image": "img/cdni-Photoroom.jpg" },
-  { "id": "cdn-women", "name": "Club de Nuit Women EDP", "brand": "Armaf", "size": 100, "notes": ["Limon","Cítrico"], "tags": [], "price": 51000, "priceText": "$51.000", "available": true, "image": "img/cdniw-Photoroom.jpg" },
-  { "id": "cdn-untold", "name": "Club de Nuit Untold EDP", "brand": "Armaf", "size": 100, "notes": ["Ámbar","Azafran"], "tags": [], "price": 90000, "priceText": "$90.000", "available": true, "image": "img/cdnu-Photoroom.jpg" },
-  { "id": "badee-amethyst", "name": "Badee Al Oud Amethyst F EDP", "brand": "Lattafa", "size": 100, "notes": ["Oud","Bergamota"], "tags": [], "price": 63000, "priceText": "$63.000", "available": true, "image": "img/amethyst-Photoroom.jpg" },
-  { "id": "badee-honor", "name": "Badee Al Oud Honor & Glory EDP", "brand": "Lattafa", "size": 100, "notes": ["Vainilla","Piña"], "tags": [], "price": 57000, "priceText": "$57.000", "available": true, "image": "img/honor y gloory-Photoroom.jpg" },
-  { "id": "badee-glory", "name": "Badee Al Oud Oud For Glory EDP", "brand": "Lattafa", "size": 100, "notes": ["Amaderado","Pachuli"], "tags": [], "price": 63000, "priceText": "$63.000", "available": true, "image": "img/for  gloory-Photoroom.jpg" },
-  { "id": "badee-sublime", "name": "Badee Al Oud Sublime EDP", "brand": "Lattafa", "size": 100, "notes": ["Ciruela","Fresa"], "tags": [], "price": 59000, "priceText": "$59.000", "available": true, "image": "img/sublime-Photoroom.jpg" },
-  { "id": "fakhar-hombre", "name": "Fakhar Hombre EDP", "brand": "Lattafa", "size": 100, "notes": ["Manzana","Bergamota"], "tags": [], "price": 65000, "priceText": "$65.000", "available": true, "image": "img/fakhar-Photoroom.jpg" },
-  { "id": "khamrah", "name": "Khamrah EDP", "brand": "Lattafa", "size": 100, "notes": ["Canela","Vainilla"], "tags": [], "price": 63000, "priceText": "$63.000", "available": true, "image": "img/khamra-Photoroom.jpg" },
-  { "id": "khamrah-qahwa", "name": "Khamrah Qahwa EDP", "brand": "Lattafa", "size": 100, "notes": ["Cafe","Canela"], "tags": [], "price": 69000, "priceText": "$69.000", "available": true, "image": "img/khamraqawha-Photoroom.jpg" },
-  { "id": "yara-candy", "name": "Yara Candy EDP", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Jazmín"], "tags": [], "price": 52000, "priceText": "$52.000", "available": true, "image": "img/candyyara-Photoroom.jpg" },
-  { "id": "yara-moi", "name": "Yara Moi EDP", "brand": "Lattafa", "size": 100, "notes": ["Pachuli","Floral"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/yaramoi-Photoroom.jpg" },
-  { "id": "yara-rosa", "name": "Yara Rosa EDP", "brand": "Lattafa", "size": 100, "notes": ["Jazmín","Vainilla"], "tags": [], "price": 67000, "priceText": "$67.000", "available": true, "image": "img/yararosa-Photoroom.jpg" },
-  { "id": "yara-tous", "name": "Yara Tous EDP", "brand": "Lattafa", "size": 100, "notes": ["Citrico","Rosa"], "tags": [], "price": 47500, "priceText": "$47.500", "available": true, "image": "img/yaratous-Photoroom.jpg" },
-  { "id": "yara-assad", "name": "Yara Assad EDP", "brand": "Lattafa", "size": 100, "notes": ["Ámbar","Tabaco"], "tags": [], "price": 51000, "priceText": "$51.000", "available": true, "image": "img/yaraasad-Photoroom.jpg" },
-  { "id": "yara-zanzibar", "name": "Yara Assad Zanzibar EDP", "brand": "Lattafa", "size": 100, "notes": ["Aniz","Amaderado"], "tags": [], "price": 43500, "priceText": "$43.500", "available": true, "image": "img/yarazanzibar-Photoroom.jpg" },
-  { "id": "kit-yara", "name": "Kit Yara Candy + Yara Rosa EDP", "brand": "Lattafa", "size": 100, "notes": [], "tags": [], "price": 98400, "priceText": "$98.400", "available": true, "image": "img/kityara-Photoroom.jpg" },
-  { "id": "musamam-white", "name": "Musamam White EDP", "brand": "Lattafa", "size": 100, "notes": ["Vainilla"], "tags": [], "price": 90000, "priceText": "$90.000", "available": true, "image": "img/musamanwhite-Photoroom.jpg" },
-  { "id": "antiquites", "name": "La Collection d Antiquites 1886 EDP", "brand": "Lattafa", "size": 100, "notes": ["Benjuí","Ámbar"], "tags": [], "price": 75000, "priceText": "$75.000", "available": true, "image": "img/lacolletion1886-Photoroom.jpg" },
-  { "id": "kingdom", "name": "The Kingdom Masculino", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Cedro"], "tags": [], "price": 78000, "priceText": "$78.000", "available": true, "image": "img/tkdm-Photoroom.jpg" },
-  { "id": "odyssey-candee", "name": "Odyssey Candee", "brand": "Armaf", "size": 100, "notes": ["Rosa","Jazmín"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/cande-Photoroom.jpg" },
-  { "id": "ajwad", "name": "Ajwad De Lattafa Unisex", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Sándalo"], "tags": [], "price": 47500, "priceText": "$47.500", "available": true, "image": "img/ajwad-Photoroom.jpg" },
-  { "id": "angham", "name": "Lattafa Angham", "brand": "Lattafa", "size": 100, "notes": ["Cedro","Almizcle"], "tags": [], "price": 52000, "priceText": "$52.000", "available": true, "image": "img/anghamm-Photoroom.jpg" },
-  { "id": "haya", "name": "Lattafa Haya", "brand": "Lattafa", "size": 100, "notes": ["Vainilla","Ámbar"], "tags": [], "price": 53000, "priceText": "$53.000", "available": true, "image": "img/hayaa-Photoroom.jpg" },
-  { "id": "sakeena", "name": "Lattafa Sakeena", "brand": "Lattafa", "size": 100, "notes": ["Vetiver","Rosa"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/sakeena-Photoroom.jpg" },
-  { "id": "tiramisu", "name": "Tiramisú Coco Zimaya", "brand": "Zimaya", "size": 100, "notes": ["Dulce"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/tiramisu.jpg" },
-  { "id": "hawas-ice", "name": "Hawas ICE", "brand": "Rasasi", "size": 100, "notes": ["Cardamo","Notas acuaticas"], "tags": [], "price": 70000, "priceText": "$70.000", "available": true, "image": "img/hawas-Photoroom.jpg" },
-  { "id": "iphone-13", "name": "iPhone 13", "brand": "TECNO+", "notes": ["Grado A+", "Batería 85%"], "tags": ["Celular", "Apple"], "price": 550000, "priceText": "$550.000", "available": true, "image": "img/iphone-13.jpg" },
-  { "id": "tv-stick", "name": "TV Stick", "brand": "TECNO+", "notes": ["Convierte tu TV en Smart"], "tags": ["Tecnología"], "price": 40000, "priceText": "$40.000", "available": true, "image": "img/TVSTICK-Photoroom.jpg" },
-  { "id": "alexa-jbl", "name": "Alexa JBL", "brand": "TECNO+", "notes": ["Poné música: Spotify, YouTube, Amazon Music"], "tags": ["Tecnología", "Audio"], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/alexajbl-Photoroom.jpg" },
-  { "id": "luo-afeitadora", "name": "LUO afeitadora perfiladora", "brand": "TECNO+", "notes": ["Recargable Barberia Dorado"], "tags": ["Cuidado Personal"], "price": 15000, "priceText": "$15.000", "available": true, "image": "img/patilleraluo.jpg" },
-  {
-    "id": "karseell-shampoo",
-    "name": "Karseell Maca Power Shampoo",
-    "brand": "Karseell",
-    "size": 500,
-    "notes": ["Fortalece", "Nutre", "Revitaliza"],
-    "tags": ["Cuidado Personal", "Cabello"],
-    "price": 22000,
-    "priceText": "$22.000",
-    "available": true, // true si está en stock, false si está agotado
-    "image": "img/shampokarsell.jpg"
-  },
-  {
-    "id": "karseell-mascara",
-    "name": "Karseell Máscara Capilar Con Colágeno",
-    "brand": "Karseell",
-    "notes": ["Hidrata", "Nutre"],
-    "tags": ["Cuidado Personal", "Cabello"],
-    "price": 25000,
-    "priceText": "$25.000",
-    "available": true, // true si está en stock, false si está agotado
-    "image": "" // <-- Recordá poner el nombre de la imagen aquí
-  }
+      // --- PERFUMES ---
+      // AFNAN
+      { "id": "9am", "name": "9 AM MASC", "brand": "Afnan", "size": 100, "notes": ["Cítrico","Dulce"], "tags":["Unisex","Fresco"], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/9amm-Photoroom.jpg" },
+      { "id": "9am-dive", "name": "9 AM DIVE EDP", "brand": "Afnan", "size": 100, "notes": ["Ámbar","Notas acuaticas"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/9ammdive-Photoroom.jpg" },
+      { "id": "9pm", "name": "9 PM MASC EDP", "brand": "Afnan", "size": 100, "notes": ["Ámbar","Pachuli"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/9pm-Photoroom.jpg" },
+      // ARMAF
+      { "id": "odyssey-mandarin", "name": "Odyssey Mandarin Sky EDP", "brand": "Armaf", "size": 100, "notes": ["Dulce","Mandarina"], "tags": [], "price": 65000, "priceText": "$65.000", "available": true, "image": "img/mandarin-Photoroom.jpg" },
+      { "id": "cdn-iconic", "name": "Club de Nuit Iconic EDP", "brand": "Armaf", "size": 100, "notes": ["Pachuli","Pomelo"], "tags": [], "price": 80000, "priceText": "$80.000", "available": true, "image": "img/cdniconic-Photoroom.jpg" },
+      { "id": "cdnim", "name": "Club de Nuit Intense Man", "brand": "Armaf", "size": 105, "notes": ["Amaderado","Cítrico","Almizcle"], "tags":["Masculino","Clásico"], "price": 50000, "priceText": "$50.000", "available": true, "image": "img/cdni-Photoroom.jpg" },
+      { "id": "cdn-urban-elixir", "name": "Club de Nuit Urban elixir", "brand": "Armaf", "size": 105, "notes": ["Amaderado","Cítrico","floral blanco"], "tags":["Masculino","Clásico"], "price": 75000, "priceText": "$75.000", "available": true, "image": "img/ccdnurban.jpeg" },
+      { "id": "cdn-women", "name": "Club de Nuit Women EDP", "brand": "Armaf", "size": 100, "notes": ["Limon","Cítrico"], "tags": [], "price": 51000, "priceText": "$51.000", "available": true, "image": "img/cdniw-Photoroom.jpg" },
+      { "id": "cdn-untold", "name": "Club de Nuit Untold EDP", "brand": "Armaf", "size": 100, "notes": ["Ámbar","Azafran"], "tags": [], "price": 85000, "priceText": "$85.000", "available": true, "image": "img/cdnu-Photoroom.jpg" },
+      { "id": "odyssey-candee", "name": "Odyssey Candee", "brand": "Armaf", "size": 100, "notes": ["Rosa","Jazmín"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/cande-Photoroom.jpg" },
+      // LATTAFA
+      { "id": "badee-amethyst", "name": "Badee Al Oud Amethyst F EDP", "brand": "Lattafa", "size": 100, "notes": ["Oud","Bergamota"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/amethyst-Photoroom.jpg" },
+      { "id": "badee-honor", "name": "Badee Al Oud Honor & Glory EDP", "brand": "Lattafa", "size": 100, "notes": ["Vainilla","Piña"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/honor y gloory-Photoroom.jpg" },
+      { "id": "badee-glory", "name": "Badee Al Oud Oud For Glory EDP", "brand": "Lattafa", "size": 100, "notes": ["Amaderado","Pachuli"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/for  gloory-Photoroom.jpg" },
+      { "id": "badee-sublime", "name": "Badee Al Oud Sublime EDP", "brand": "Lattafa", "size": 100, "notes": ["Ciruela","Fresa"], "tags": [], "price": 59000, "priceText": "$59.000", "available": true, "image": "img/sublime-Photoroom.jpg" },
+      { "id": "fakhar-hombre", "name": "Fakhar Hombre EDP", "brand": "Lattafa", "size": 100, "notes": ["Manzana","Bergamota"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/fakhar-Photoroom.jpg" },
+      { "id": "khamrah", "name": "Khamrah EDP", "brand": "Lattafa", "size": 100, "notes": ["Canela","Vainilla"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/khamra-Photoroom.jpg" },
+      { "id": "khamrah-qahwa", "name": "Khamrah Qahwa EDP", "brand": "Lattafa", "size": 100, "notes": ["Cafe","Canela"], "tags": [], "price": 65000, "priceText": "$65.000", "available": true, "image": "img/khamraqawha-Photoroom.jpg" },
+      { "id": "yara-candy", "name": "Yara Candy EDP", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Jazmín"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/candyyara-Photoroom.jpg" },
+      { "id": "yara-moi", "name": "Yara Moi EDP", "brand": "Lattafa", "size": 100, "notes": ["Pachuli","Floral"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/yaramoi-Photoroom.jpg" },
+      { "id": "yara-rosa", "name": "Yara Rosa EDP", "brand": "Lattafa", "size": 100, "notes": ["Jazmín","Vainilla"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/yararosa-Photoroom.jpg" },
+      { "id": "yara-tous", "name": "Yara Tous EDP", "brand": "Lattafa", "size": 100, "notes": ["Citrico","Rosa"], "tags": [], "price": 50000, "priceText": "$50.000", "available": true, "image": "img/yaratous-Photoroom.jpg" },
+      { "id": "yara-assad", "name": "Yara Assad EDP", "brand": "Lattafa", "size": 100, "notes": ["Ámbar","Tabaco"], "tags": [], "price": 51000, "priceText": "$51.000", "available": true, "image": "img/yaraasad-Photoroom.jpg" },
+      { "id": "yara-zanzibar", "name": "Yara Assad Zanzibar EDP", "brand": "Lattafa", "size": 100, "notes": ["Aniz","Amaderado"], "tags": [], "price": 43500, "priceText": "$43.500", "available": true, "image": "img/yarazanzibar-Photoroom.jpg" },
+      { "id": "kit-yara", "name": "Kit Yara Candy + Yara Rosa EDP", "brand": "Lattafa", "size": 100, "notes": [], "tags": [], "price": 85000, "priceText": "$85.000", "available": true, "image": "img/kityara-Photoroom.jpg" },
+      { "id": "musamam-white", "name": "Musamam White EDP", "brand": "Lattafa", "size": 100, "notes": ["Vainilla"], "tags": [], "price": 90000, "priceText": "$90.000", "available": true, "image": "img/musamanwhite-Photoroom.jpg" },
+      { "id": "antiquites", "name": "La Collection d Antiquites 1886 EDP", "brand": "Lattafa", "size": 100, "notes": ["Benjuí","Ámbar"], "tags": [], "price": 75000, "priceText": "$75.000", "available": true, "image": "img/lacolletion1886-Photoroom.jpg" },
+      { "id": "kingdom", "name": "The Kingdom Masculino", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Cedro"], "tags": [], "price": 78000, "priceText": "$78.000", "available": true, "image": "img/tkdm-Photoroom.jpg" },
+      { "id": "ajwad", "name": "Ajwad De Lattafa Unisex", "brand": "Lattafa", "size": 100, "notes": ["Almizcle","Sándalo"], "tags": [], "price": 50000, "priceText": "$50.000", "available": true, "image": "img/ajwad-Photoroom.jpg" },
+      { "id": "angham", "name": "Lattafa Angham", "brand": "Lattafa", "size": 100, "notes": ["Cedro","Almizcle"], "tags": [], "price": 52000, "priceText": "$52.000", "available": true, "image": "img/anghamm-Photoroom.jpg" },
+      { "id": "haya", "name": "Lattafa Haya", "brand": "Lattafa", "size": 100, "notes": ["Vainilla","Ámbar"], "tags": [], "price": 53000, "priceText": "$53.000", "available": true, "image": "img/hayaa-Photoroom.jpg" },
+      { "id": "sakeena", "name": "Lattafa Sakeena", "brand": "Lattafa", "size": 100, "notes": ["Vetiver","Rosa"], "tags": [], "price": 55000, "priceText": "$55.000", "available": true, "image": "img/sakeena-Photoroom.jpg" },
+      // RASASI
+      { "id": "hawas-ice", "name": "Hawas ICE", "brand": "Rasasi", "size": 100, "notes": ["Cardamo","Notas acuaticas"], "tags": [], "price": 70000, "priceText": "$70.000", "available": true, "image": "img/hawas-Photoroom.jpg" },
+      // ZIMAYA
+      { "id": "tiramisu", "name": "Tiramisú Coco Zimaya", "brand": "Zimaya", "size": 100, "notes": ["Dulce"], "tags": [], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/tiramisu.jpg" },
+      
+      // --- TECNOLOGÍA ---
+      { "id": "iphone-13", "name": "iPhone 13", "brand": "TECNO+", "notes": ["Grado A+", "Batería 85%"], "tags": ["Celular", "Apple"], "price": 500000, "priceText": "$500.000", "available": true, "image": "img/iphone-13.jpg" },
+      { "id": "tv-stick", "name": "TV Stick", "brand": "TECNO+", "notes": ["Convierte tu TV en Smart"], "tags": ["Tecnología"], "price": 40000, "priceText": "$40.000", "available": true, "image": "img/TVSTICK-Photoroom.jpg" },
+      { "id": "alexa-jbl", "name": "Alexa JBL", "brand": "TECNO+", "notes": ["Poné música: Spotify, YouTube, Amazon Music"], "tags": ["Tecnología", "Audio"], "price": 60000, "priceText": "$60.000", "available": true, "image": "img/alexajbl-Photoroom.jpg" },
+      { "id": "luo-afeitadora", "name": "LUO afeitadora perfiladora", "brand": "TECNO+", "notes": ["Recargable Barberia Dorado"], "tags": ["Cuidado Personal"], "price": 15000, "priceText": "$15.000", "available": true, "image": "img/patilleraluo.jpg" },
+
+      // --- KARSEELL ---
+      { "id": "karseell-shampoo", "name": "Karseell Maca Power Shampoo", "brand": "Karseell", "size": 500, "notes": ["diseñado para fortalecer, nutrir y revitalizar tu cabello"], "tags": ["Cuidado Personal", "Cabello"], "price": 22000, "priceText": "$22.000", "available": true, "image": "img/shampokarsell.jpg" },
+      { "id": "karseell-maca", "name": "Karseell Máscara Colágeno", "brand": "Karseell", "size": 500, "notes": ["Restauracion colageno"], "tags": ["Hidratación, Nutrición, Reducción del frizz, Reparación"], "price": 25000, "priceText": "$25.000", "available": true, "image": "img/karsellmaca.jpg" }
 ];
 
 // ==========================
@@ -128,7 +117,7 @@ function render(){
   const brand = state.filter.brand;
   const note = state.filter.note.toLowerCase();
 
-  const list = products.filter(p => {
+  const list = (products || []).filter(p => {
     const matchQ = !q || (p.name+ ' ' + p.brand + ' ' + p.notes.join(' ')).toLowerCase().includes(q);
     const matchB = !brand || p.brand === brand;
     const matchN = !note || p.notes.map(n=>n.toLowerCase()).some(n=>n.includes(note));
@@ -272,8 +261,5 @@ function populateFilters() {
 }
 
 // --- Inicialización ---
-// Ahora simplemente llamamos a render() porque los productos ya están en memoria.
 render();
-
-// Y poblamos los filtros dinámicamente.
 populateFilters();
